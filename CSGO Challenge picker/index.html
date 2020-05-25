@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>CSGO Challenge picker</title>
+
+  <style media="screen">
+    table, th, td {
+    border: 1px solid black;
+  }
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <button type="button" name="button" onclick="myFunction()">Click for a loadout challenge</button><br><br>
+  <b> This rounds challenge: </b><br><br>
+  <table>
+    <tr>
+      <th>Weapon name</th>
+      <th>Weapon Image</th>
+    <tr id="priwep1">
+      <td id="priwep">Primairy</td>
+      <img id="imgprim"></img>
+    </tr>
+    <tr id="priwep2">
+      <td id="secwep">Secondary</td>
+      <img id="imgsec"></img>
+    </tr>
+    <tr id="priwep3">
+      <td id="knife">Knife</td>
+      <img id="imgknife"></img>
+    </tr>
+  </table>
+
+
+
+
+  <script>
+    window.onload = myFunction;
+
+    function myFunction() {
+
+      var delprim = document.getElementById('imgprim');
+      delprim.parentNode.removeChild(delprim);
+
+      var delsec = document.getElementById('imgsec');
+      delsec.parentNode.removeChild(delsec);
+
+      var delknife = document.getElementById('imgknife');
+      delknife.parentNode.removeChild(delknife);
+
+
+
+      const arr_primaryweapons = ["AUG", "AWP", "FAMAS", "G3SG1", "M4A1-S", "M4A4", "M249", "MAG-7", "MP5-SD", "MP7", "MP9", "Negev", "Nova", "P90", "PP-Bizon", "SSG 08", "UMP-45", "XM1014"];
+      const arr_secondaryweapons = ["CZ75-Auto", "Desert Eagle", "Dual Barettas", "Five-SeveN", "P250", "P2000", "R8 Revolver", "USP"];
+
+      const randomPriWep = arr_primaryweapons[Math.floor(Math.random() * arr_primaryweapons.length)];
+      const randomSecWep = arr_secondaryweapons[Math.floor(Math.random() * arr_secondaryweapons.length)];
+
+
+      // console.log("random month =>", randomPriWep);
+      // console.log("random month =>", randomSecWep);
+
+      document.getElementById('priwep').innerHTML = randomPriWep;
+      document.getElementById('secwep').innerHTML = randomSecWep;
+
+      var primaryweaponimg = document.createElement("img");
+      primaryweaponimg.setAttribute('src', 'CT/Prim/' + randomPriWep + '.png');
+      primaryweaponimg.setAttribute('id', 'imgprim');
+      document.getElementById('priwep1').appendChild(primaryweaponimg);
+
+      // document.getElementById('priwep1').removeChild(primaryweaponimg);
+
+      var primaryweaponimg = document.createElement("img");
+      primaryweaponimg.setAttribute('src', 'CT/Sec/' + randomSecWep + '.png');
+      primaryweaponimg.setAttribute('id', 'imgsec');
+      document.getElementById('priwep2').appendChild(primaryweaponimg)
+
+      var primaryweaponimg = document.createElement("img");
+      primaryweaponimg.setAttribute('src', 'CT/knife.png');
+      primaryweaponimg.setAttribute('id', 'imgknife');
+      document.getElementById('priwep3').appendChild(primaryweaponimg)
+
+      // document.body.appendChild(primaryweaponimg);
+    };
+  </script>
+</body>
+
+</html>

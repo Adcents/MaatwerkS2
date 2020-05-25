@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <svg width="200" height="200" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+    <filter id="displacementFilter">
+      <feTurbulence id="splash" type="turbulence" baseFrequency="0.05" numOctaves="2" result="turbulence" />
+      <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="50" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+
+    <circle cx="100" cy="100" r="100" style="filter: url(#displacementFilter)" />
+    <animate xlink:href="#splash" attributeName="baseFrequency" dur="10s" keyTimes="0;0.5;1" values="0;0.05;0" repeatCount="indefinite"/>
+  </svg>
+</body>
+
+</html>
