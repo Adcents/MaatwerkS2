@@ -1,0 +1,17 @@
+#movies img, #movie img{
+  width: 100%;
+}
+
+#movies .col-md-3 .well{
+  height: 390px;
+  margin-bottom: 75px;
+}
+
+#movies .col-md-3 img{
+  height: 350px;
+}
+
+/* .well {
+    border-style: solid;
+    border-color: coral;
+} */
