@@ -80,15 +80,31 @@ function movieSelected(id) {
 
       let movie = res;
 
+      let flags = movie.Country;
+      let countryArr = flags.split(', ');
+      console.log(countryArr);
+
       console.log(movie);
-      //
+
+
+
+      // <img src="png/${(countryArr[0])}.png" class="flag" title="${(countryArr[0])}">
+      // <img src="png/${(countryArr[1])}.png" class="flag" title="${(countryArr[1])}">
+      // <img src="png/${(countryArr[2])}.png" class="flag" title="${(countryArr[2])}">
+
+
+
       let output = `
       <div id="poef">
           <div id="source-modal" class="modal fade show" tabindex="-1" style="display: block; padding-right: 17px;" aria-modal="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">${movie.Title}</h4>
+              <h4 class="modal-title" id="addflag">${movie.Title}
+
+
+
+              </h4>
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="removeElement()">×</button>
             </div>
             <div class="modal-body">
@@ -97,7 +113,6 @@ function movieSelected(id) {
             <img src="${movie.Poster}" class="thumbnail">
           </div>
           <div class="col-md-8">
-            <h2>${movie.Title}</h2>
             <ul class="list-group">
               <li class="list-group-item"><strong>Genre:</strong> ${movie.Genre}</li>
               <li class="list-group-item"><strong>Released:</strong> ${movie.Released}</li>
@@ -111,9 +126,9 @@ function movieSelected(id) {
         </div>
         <div class="row">
           <div class="well">
+          </br>
             <h3>Plot</h3>
             ${movie.Plot}
-            <hr>
           </div>
         </div>
             </div>
@@ -126,7 +141,13 @@ function movieSelected(id) {
       </div>
           `;
 
-      $('#movie').html(output); //inner html kan mss ook?
+
+
+      $('#movie').html(output);
+
+      $.each(countryArr, function(index, value) {
+        $("#addflag").append('<img src="png/' + value + '.png" class="flag" title="' + value + '"> ');
+      });
 
 
 
@@ -134,6 +155,7 @@ function movieSelected(id) {
 
 
 }
+
 function removeElement() {
   // Removes an element from the document
   var element = document.getElementById('poef');

@@ -11,7 +11,10 @@
   height: 350px;
 }
 
-/* .well {
-    border-style: solid;
-    border-color: coral;
-} */
+.well {
+    padding: 10px;
+}
+
+.flag {
+  width: 3% !important;
+}
