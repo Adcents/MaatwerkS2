@@ -80,7 +80,8 @@ function movieSelected(id) {
 
       let movie = res;
 
-      let flags = movie.Country;
+      let flag = movie.Country;
+      let flags = flag.toLowerCase();
       let countryArr = flags.split(', ');
       console.log(countryArr);
 
